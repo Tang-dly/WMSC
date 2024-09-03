@@ -311,6 +311,7 @@ int main()
     onePlayer(1);
     flag = 1;
     ZBQ = 100;
+    bitMask = 0;
     printf("=====================\n");
     printf("\n\n\n第二位玩家开始抽牌\n");
     onePlayer(2);
