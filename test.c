@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <unistd.h>
+#include <string.h>
 
 // {"美人鱼", "船锚", "占卜球", "海怪", "钥匙", "宝箱", "钩子", "藏宝图", "刀", "炮弹"};
 int bitMask = 0;
@@ -79,13 +81,34 @@ void print_list(bag_t* head) {
     }
 }
 
-void add_bag(bag_t **bag, bag_t *new)
+// 释放链表
+void free_list(bag_t* head) {
+    bag_t* temp;
+    while (head != NULL) {
+        temp = head;
+        head = head->next;
+        free(temp);
+    }
+}
+int getNodeCnt(bag_t* head)
 {
-    bag_t* temp = *bag;
-    while (temp->next != NULL) {
+    bag_t* temp = head;
+    int cnt = 0;
+    while (temp != NULL) {
+        cnt++;
         temp = temp->next;
     }
-    temp->next = new;
+    return cnt;
+}
+
+void add_bag(bag_t **bag, bag_t *new)
+{
+    bag_t *temp2 = new;
+    while (temp2 != NULL) {
+        append_node(bag, temp2->characterId, temp2->score);
+        temp2 = temp2->next;
+    }
+    return;
 }
 int generateRandomInRange(int min, int max) {
     return min + rand() % (max - min + 1);
@@ -104,7 +127,41 @@ void handleC()
 void handleZ()
 {
     ZBQ = generateRandomInRange(0, 9);
-    printf("占卜球看到下张牌为 \n");
+    printf("占卜球看到下张牌为:");
+    switch(ZBQ) {
+        case 0:
+            printf("美人鱼\n");
+            break;
+        case 1:
+            printf("船锚\n");
+            break;
+        case 2:
+            printf("占卜球\n");
+            break;
+        case 3:
+            printf("钥匙\n");
+            break;
+        case 4:
+            printf("宝箱\n");
+            break;
+        case 5: 
+            printf("刀\n");
+            break;
+        case 6:
+            printf("钩子\n");
+            break;
+        case 7:
+            printf("藏宝图\n");
+            break;
+        case 8:
+            printf("刀\n");
+            break;
+        case 9:
+            printf("炮弹\n");
+            break;
+        default:
+            break;
+    }
     return;
 }
 
@@ -141,13 +198,14 @@ void handleP()
 {
     
 }
-void getCard(bag_t *bag)
+void getCard(bag_t **bag)
 {
     int characterId;
     if(ZBQ == 100) {
         characterId = generateRandomInRange(0, 9);
     } else {
         characterId = ZBQ;
+        ZBQ = 100;
     }
     int newScore = generateRandomInRange(2, 7);
     switch (characterId)
@@ -195,20 +253,20 @@ void getCard(bag_t *bag)
     default:
         break;
     }
-    if((bitMask >> characterId) & 1 == 0) {
+    if(((bitMask >> characterId) & 1) == 0) {
         bitMask |= 1 << characterId;
-        append_node(&bag, characterId, newScore);
+        append_node(bag, characterId, newScore);
     } else {
         printf("boom!\n");
         flag = 0;
         return;
     }
 }
-int onePlayer()
+int onePlayer(int player)
 {
     bag_t *tmpBag = NULL;
     while(1) {
-        getCard(tmpBag);
+        getCard(&tmpBag);
         if(flag == 0) {
             break;
         } else {
@@ -220,7 +278,12 @@ int onePlayer()
             }            
         }
     }
-    add_bag(&player1, tmpBag);
+    if(player == 1) {
+        add_bag(&player1, tmpBag); 
+    } else {
+        add_bag(&player2, tmpBag);
+    }
+    free_list(tmpBag);
 }
 
 int checkResult()
@@ -245,8 +308,11 @@ int main()
 {
     printf("开始游戏\n");
     printf("第一位玩家开始抽牌\n");
-    onePlayer();
-    printf("第二位玩家开始抽牌\n");
-    onePlayer();
-    printf("最终获胜玩家为%d", checkResult());
+    onePlayer(1);
+    flag = 1;
+    ZBQ = 100;
+    printf("=====================\n");
+    printf("\n\n\n第二位玩家开始抽牌\n");
+    onePlayer(2);
+    printf("最终获胜玩家为%d\n", checkResult());
 }
