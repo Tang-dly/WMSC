@@ -3,12 +3,14 @@
 #include <time.h>
 #include <unistd.h>
 #include <string.h>
-
+#define CARD_CNT 5
 // {"美人鱼", "船锚", "占卜球", "海怪", "钥匙", "宝箱", "钩子", "藏宝图", "刀", "炮弹"};
 int bitMask = 0;
 int score = 0;
 int flag = 1;
-int ZBQ = 100;
+// 占卜球   
+int ZBQTYPE = 100;
+int ZBQSCORE = 0;
 
 typedef struct Bag {
     int characterId;
@@ -16,8 +18,13 @@ typedef struct Bag {
     struct Bag *next;
 } bag_t;
 
+
+//玩家战利品
 bag_t *player1 = NULL;
 bag_t *player2 = NULL;
+
+//总牌库
+bag_t *store = NULL;
 
 // 创建新节点
 bag_t* create_node(int characterId, int score) {
@@ -47,19 +54,19 @@ void append_node(bag_t** head, int characterId, int score) {
 }
 
 // 删除节点
-void delete_node(bag_t** head, int characterId) {
+void delete_node(bag_t** head, int characterId, int score) {
     bag_t* temp = *head;
     bag_t* prev = NULL;
     
     // 如果头节点需要删除
-    if (temp != NULL && temp->characterId == characterId) {
+    if (temp != NULL && temp->characterId == characterId && temp->score == score) {
         *head = temp->next; // 头节点被删除
         free(temp);
         return;
     }
 
     // 搜索待删除的节点
-    while (temp != NULL && temp->characterId != characterId) {
+    while (temp != NULL && temp->characterId != characterId || temp->score != score) {
         prev = temp;
         temp = temp->next;
     }
@@ -101,6 +108,26 @@ int getNodeCnt(bag_t* head)
     return cnt;
 }
 
+bag_t* findNodeByIndex(int index)
+{
+    bag_t *temp = store;
+    while(index--) {
+        temp = temp->next;
+    }
+    return temp;
+}
+
+bag_t* findFirstNodeByChara(int id)
+{
+    bag_t *temp = store;
+    while(temp != NULL) {
+        if(temp->characterId == id) {
+            break;
+        }
+        temp = temp->next;
+    }
+    return temp;
+}
 void add_bag(bag_t **bag, bag_t *new)
 {
     bag_t *temp2 = new;
@@ -126,9 +153,13 @@ void handleC()
 
 void handleZ()
 {
-    ZBQ = generateRandomInRange(0, 9);
+    int storeCnt = getNodeCnt(store);
+    int tmp = generateRandomInRange(0, storeCnt - 1);
+    bag_t *node = findNodeByIndex(tmp);
+    ZBQTYPE = node->characterId;
+    ZBQSCORE = node->score;
     printf("占卜球看到下张牌为:");
-    switch(ZBQ) {
+    switch(ZBQTYPE) {
         case 0:
             printf("美人鱼\n");
             break;
@@ -200,14 +231,27 @@ void handleP()
 }
 void getCard(bag_t **bag)
 {
-    int characterId;
-    if(ZBQ == 100) {
-        characterId = generateRandomInRange(0, 9);
+    int characterId, newScore;
+    int storeCnt = getNodeCnt(store);
+    if(storeCnt == 0) {
+        printf("牌库为空\n");
+        flag = 0;
+        return;
     } else {
-        characterId = ZBQ;
-        ZBQ = 100;
+        printf("牌库卡牌剩余%d张\n", storeCnt);
     }
-    int newScore = generateRandomInRange(2, 7);
+    if(ZBQTYPE == 100) {
+        int index = 0;
+        index = generateRandomInRange(0, storeCnt-1);
+        bag_t *node = findNodeByIndex(index);
+        characterId = node->characterId;
+        newScore = node->score;
+    } else {
+        characterId = ZBQTYPE;
+        newScore = ZBQSCORE;
+        ZBQTYPE = 100;
+    }
+
     switch (characterId)
     {
     case 0:
@@ -256,9 +300,13 @@ void getCard(bag_t **bag)
     if(((bitMask >> characterId) & 1) == 0) {
         bitMask |= 1 << characterId;
         append_node(bag, characterId, newScore);
+        delete_node(&store, characterId, newScore);
     } else {
         printf("boom!\n");
         flag = 0;
+        add_bag(&store, *bag);
+        free_list(*bag);
+        *bag = NULL;
         return;
     }
 }
@@ -278,12 +326,14 @@ int onePlayer(int player)
             }            
         }
     }
-    if(player == 1) {
-        add_bag(&player1, tmpBag); 
-    } else {
-        add_bag(&player2, tmpBag);
+    if(tmpBag != NULL) {
+        if(player == 1) {
+            add_bag(&player1, tmpBag); 
+        } else {
+            add_bag(&player2, tmpBag);
+        }
+        free_list(tmpBag);        
     }
-    free_list(tmpBag);
 }
 
 int checkResult()
@@ -304,16 +354,64 @@ int checkResult()
     printf("玩家2的最终分数为:%d\n", result1);
     return result0>result1? 1:2;
 }
+
+void createStore(int **storeArr)
+{ 
+    int *tmp = malloc(sizeof(int) * 10 * CARD_CNT);
+    for(int j = 0; j < 10; j++) {
+        for(int i = 0; i < CARD_CNT; i++) {
+            score = generateRandomInRange(2, 7);
+            tmp[j * 5 + i] = (score & 0xf) + (j << 4);
+        }
+    }
+    *storeArr = tmp;
+}
+
+//打乱牌库
+void shuffleStore(int **storeArr)
+{
+    
+    int *tmp = (int *)(*storeArr);
+    int c = 0;
+    for(int i = 0; i < 100 * CARD_CNT; i++) {    //十倍次数洗牌
+        int a = generateRandomInRange(0, 10 * CARD_CNT - 1);
+        int b = generateRandomInRange(0, 10 * CARD_CNT - 1);
+        c = tmp[a];
+        tmp[a] = tmp[b];
+        tmp[b] = c;
+    }
+    for(int i = 0; i < 10 * CARD_CNT; i++) {
+        append_node(&store, tmp[i] >> 4, tmp[i] & 0xf);
+    }
+}
 int main()
 {
+    //设置随机数种子
+    srand(time(NULL));
+    //生成牌库
+    int *storeArr = NULL;
+    createStore((int**)&storeArr);
+    //打乱牌库
+    shuffleStore((int**)&storeArr);
     printf("开始游戏\n");
-    printf("第一位玩家开始抽牌\n");
-    onePlayer(1);
-    flag = 1;
-    ZBQ = 100;
-    bitMask = 0;
-    printf("=====================\n");
-    printf("\n\n\n第二位玩家开始抽牌\n");
-    onePlayer(2);
+    while(1) {
+        printf("第一位玩家开始抽牌\n");
+        onePlayer(1);
+        flag = 1;
+        ZBQTYPE = 100;
+        bitMask = 0;
+        printf("=====================\n");
+        printf("\n\n\n第二位玩家开始抽牌\n");
+        onePlayer(2);  
+        flag = 1;
+        ZBQTYPE = 100;
+        bitMask = 0;
+        printf("=====================\n"); 
+        int storeCnt = getNodeCnt(store);
+        if(storeCnt == 0) {
+            printf("游戏结束\n");
+            break;
+        }
+    }
     printf("最终获胜玩家为%d\n", checkResult());
 }
