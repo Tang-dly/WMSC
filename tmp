@@ -1,0 +1,925 @@
+<?xml version="1.0"?>
+<EtherCATInfo Version="1.2" xmlns:xsi="http://www.w3.org/2010/XMLSchema-instance" xsi:noNamespaceSchemaLocation="EtherCATInfo.xsd">
+  <Vendor>
+    <Id>#xE0000044</Id>
+    <Name>Hilscher Gesellschaft für Systemautomation mbH</Name>
+    <ImageData16x14>424DE6000000000000007600000028000000100000000E000000010004000000000070000000C40E0000C40E000000000000000000000000000000008000008000000080800080000000800080008080000080808000C0C0C0000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00799999FFFFFFFFFF899999FFFFFFFFFFF999998FFFFFFFFFF999999FF8FFFFFFFF999998F89FFFFFFF799999FF99FFFFFFF999999F99998FFFFF988889888898FFFF89999999999FFFFFFFFFFFFFFFFFFFFFFFF9799999FFFFFFFFFFF8889FFFFFFFFFFFFFFF9FFFFFFFFFFFFFFFFFFF</ImageData16x14>
+  </Vendor>
+  <Descriptions>
+    <Groups>
+      <Group>
+        <Type>netX</Type>
+        <Name LcId="1033">netX</Name>
+        <ImageData16x14>424DE6000000000000007600000028000000100000000E000000010004000000000070000000C30E0000C30E000000000000000000000000000000008000008000000080800080000000800080008080000080808000C0C0C0000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00FFFFFFFFFFFFFFFFFF0000000003077FFF0000000000007FFF0000000000007FFF0000000000007FFF0000000000007FFF0000000000007FFF0000000000007FFF7007777777777FFF8077887707F77FFF7777777877777FFF0000000700007FFF0000000000007FFFFFFFFFFFFFFFFF</ImageData16x14>
+      </Group>
+    </Groups>
+    <Devices>
+      <Device Physics="YY">
+        <Type ProductCode="#x00000001" RevisionNo="#x00060004" UseLrdLwr="1">CIFX ISME1</Type>
+        <Name LcId="1033"><![CDATA[CIFX ISME1]]></Name>
+        <URL><![CDATA[http://www.hilscher.com/]]></URL>
+        <GroupType>netX</GroupType>
+        <Fmmu>Outputs</Fmmu>
+        <Fmmu>Inputs</Fmmu>
+        <Fmmu>MBoxState</Fmmu>
+        <Sm MinSize="128" MaxSize="128" DefaultSize="128" StartAddress="#x1000" ControlByte="#x36" Enable="1">MBoxOut</Sm>
+        <Sm MinSize="128" MaxSize="128" DefaultSize="128" StartAddress="#x1080" ControlByte="#x32" Enable="1">MBoxIn</Sm>
+        <Sm MinSize="0" MaxSize="256" DefaultSize="200" StartAddress="#x1100" ControlByte="#x74" Enable="1">Outputs</Sm>
+        <Sm MinSize="0" MaxSize="256" DefaultSize="200" StartAddress="#x1400" ControlByte="#x30" Enable="1">Inputs</Sm>
+		<RxPdo Fixed="0" Mandatory="0">
+			<Index>#x1600</Index>
+			<Name>1. RxPDO</Name>
+			<Entry>
+				<Index>#x2000</Index>
+				<SubIndex>1</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>out0</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2000</Index>
+				<SubIndex>2</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>out1</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2000</Index>
+				<SubIndex>3</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>out2</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2000</Index>
+				<SubIndex>4</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>out3</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2000</Index>
+				<SubIndex>5</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>out4</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+		</RxPdo>
+		<RxPdo Fixed="0" Mandatory="0" Sm="2">
+			<Index>#x1601</Index>
+			<Name>2. RxPDO</Name>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>1</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (200)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>2</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (201)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>3</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (202)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>4</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (203)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>5</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (204)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>6</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (205)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>7</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (206)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>8</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (207)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>9</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (208)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>10</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (209)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>11</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (210)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>12</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (211)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>13</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (212)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>14</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (213)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>15</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (214)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>16</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (215)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>17</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (216)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>18</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (217)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>19</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (218)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>20</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (219)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>21</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (220)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>22</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (221)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>23</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (222)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>24</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (223)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>25</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (224)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>26</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (225)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>27</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (226)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>28</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (227)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>29</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (228)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>30</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (229)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>31</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (230)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>32</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (231)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>33</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (232)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>34</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (233)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>35</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (234)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>36</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (235)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>37</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (236)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>38</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (237)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>39</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (238)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>40</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (239)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>41</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (240)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>42</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (241)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>43</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (242)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>44</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (243)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>45</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (244)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>46</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (245)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>47</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (246)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>48</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (247)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>49</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (248)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>50</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (249)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>51</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (250)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>52</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (251)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>53</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (252)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>54</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (253)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>55</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (254)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x2100</Index>
+				<SubIndex>56</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>Out (255)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+		</RxPdo>
+		<TxPdo Fixed="0" Mandatory="0">
+			<Index>#x1A00</Index>
+			<Name>1. TxPDO</Name>
+			<Entry>
+				<Index>#x3000</Index>
+				<SubIndex>1</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>in0</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3000</Index>
+				<SubIndex>2</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>in1</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3000</Index>
+				<SubIndex>3</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>in2</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3000</Index>
+				<SubIndex>4</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>in3</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3000</Index>
+				<SubIndex>5</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>in4</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+		</TxPdo>
+		<TxPdo Fixed="0" Mandatory="0" Sm="3">
+			<Index>#x1A01</Index>
+			<Name>2. TxPDO</Name>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>1</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (200)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>2</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (201)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>3</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (202)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>4</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (203)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>5</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (204)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>6</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (205)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>7</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (206)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>8</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (207)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>9</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (208)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>10</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (209)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>11</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (210)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>12</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (211)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>13</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (212)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>14</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (213)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>15</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (214)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>16</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (215)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>17</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (216)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>18</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (217)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>19</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (218)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>20</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (219)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>21</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (220)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>22</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (221)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>23</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (222)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>24</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (223)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>25</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (224)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>26</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (225)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>27</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (226)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>28</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (227)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>29</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (228)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>30</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (229)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>31</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (230)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>32</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (231)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>33</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (232)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>34</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (233)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>35</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (234)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>36</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (235)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>37</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (236)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>38</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (237)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>39</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (238)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>40</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (239)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>41</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (240)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>42</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (241)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>43</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (242)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>44</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (243)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>45</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (244)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>46</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (245)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>47</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (246)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>48</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (247)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>49</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (248)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>50</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (249)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>51</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (250)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>52</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (251)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>53</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (252)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>54</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (253)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>55</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (254)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+			<Entry>
+				<Index>#x3100</Index>
+				<SubIndex>56</SubIndex>
+				<BitLen>8</BitLen>
+				<Name>In (255)</Name>
+				<DataType>BYTE</DataType>
+			</Entry>
+		</TxPdo>
+        <Mailbox DataLinkLayer="1">
+          <CoE SdoInfo="1" PdoUpload="1" CompleteAccess="1"/>
+        </Mailbox>
+        <Dc UnknownFRMW="0" Unknown64Bit="1">
+          <OpMode>
+            <Name>DcOff</Name>
+            <Desc>DC unused</Desc>
+            <AssignActivate>#x0000</AssignActivate>
+          </OpMode>
+          <OpMode>
+            <Name>DcSync0</Name>
+            <Desc>DC Sync0 for synchronization</Desc>
+            <AssignActivate>#x0300</AssignActivate>
+            <CycleTimeSync0 Factor="1">0</CycleTimeSync0>
+            <ShiftTimeSync0>0</ShiftTimeSync0>
+          </OpMode>
+        </Dc>
+        <Eeprom>
+          <ByteSize>65536</ByteSize>
+          <ConfigData>060000CCE8030000</ConfigData>
+          <BootStrap>0010800080108000</BootStrap>
+        </Eeprom>
+        <ImageData16x14>424DE6000000000000007600000028000000100000000E000000010004000000000070000000C30E0000C30E000000000000000000000000000000008000008000000080800080000000800080008080000080808000C0C0C0000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00FFFFFFFFFFFFFFFFFF8FFFFFFFFFFFFFFF88FFF88888888FFF8877777777777FFF8887997001777FFF8F87777101778FFF8F88FFFFFFFFFFFF8F7FFFFFFFFFFFFF887FFFFFFFFFFFFF888FFFFFFFFFFFFF8FFFFFFFFFFFFFFF8FFFFFFFFFFFFFFF8FFFFFFFFFFFFFFFFFFFFFFFFFFFFF</ImageData16x14>
+      </Device>
+    </Devices>
+  </Descriptions>
+</EtherCATInfo>
